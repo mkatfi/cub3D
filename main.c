@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:27:33 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/20 19:31:41 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/20 20:29:32 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,13 +147,13 @@ void cheack_map(t_data *p)
 		j=0;
 		while(p->map[i][j])
 		{
-			if (p->map[i][j] == 32 && (i != 0  && p->map[i][j + 1] != '1'))
+			if (p->map[i][j] == 32 && (i == 0  && p->map[i][j + 1] == '1'))
 				ft_error("Error==>1\n");
-			if (p->map[i][j] == 32 && (p->map[i][j + 1] != '1' && j != 0 ))
+			if (p->map[i][j] == 32 && (p->map[i][j + 1] == '1' && j == 0 ))
 				ft_error("Error==>2\n");
-			if(p->map[i][j] == 32 && (p->map[i][j + 1] != '\0' && p->map[i][j + 1] != '1'))
+			if(p->map[i][j] == 32 && (p->map[i][j + 1] == '\0' && p->map[i][j + 1] == '1'))
 				ft_error("Error==>3\n");
-			if (p->map[i][j] == 32 && (p->map[i][j + 1] != '1' && p->map[i] != NULL))
+			if (p->map[i][j] == 32 && (p->map[i][j + 1] == '1' && p->map[i] == NULL))
 				ft_error("Error==>4\n");
 			j++;
 		}
@@ -161,15 +161,75 @@ void cheack_map(t_data *p)
 	}
 }
 
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+	size_t	a;
+
+	i = 0;
+	a = 0;
+	while (src[a] != '\0')
+		a++;
+	if (dstsize != 0)
+	{
+		while (src[i] != '\0' && i < dstsize - 1)
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (a);
+}
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+	size_t	a;
+	size_t	d;
+	size_t	s;
+
+	if (dstsize == 0 && !dst)
+		return (ft_strlen(src));
+	d = ft_strlen(dst);
+	s = ft_strlen(src);
+	i = ft_strlen(dst);
+	a = 0;
+	if (dstsize <= d)
+		return (s + dstsize);
+	while (src[a] && a < dstsize - 1 - d)
+	{
+		dst[i] = src[a];
+		i++;
+		a++;
+	}
+	dst[i] = '\0';
+	return (d + s);
+}
 void plus_espice(t_data *p)
 {
-	char **s;
-	int i =0;
-	while(p->map[i])
+	char *buffer;
+	int i;
+	int j;
+	int len;
+	size_t size_of_line;
+
+	len = long_line(p->map);
+	i = -1;
+	while(p->map[++i])
 	{
-		s = p->map
-	}
-	
+		size_of_line = ft_strlen(p->map[i]);
+		if (size_of_line < len)
+		{	
+			buffer = malloc(len + 1);
+			ft_strlcpy(buffer, p->map[0], size_of_line);
+			j = -1;
+			while (++j < len)
+				buffer[j - 1 + size_of_line] = ' ';
+			buffer[len] = 0;
+			free(p->map[i]);
+			p->map[i] = buffer;
+		}
+	}	
 }
 int long_line(char **str)
 {
@@ -187,42 +247,41 @@ int long_line(char **str)
 	return(m);
 }
 
-void check_txter(char **s)
-{
-	int i = 0;
-	int j= 0;
-	int c =0;
-	while(s && s[i])
-	{
-		while(s[i][j])
-		{
+// void check_txter(char **s)
+// {
+// 	int i = 0;
+// 	int j= 0;
+// 	int c =0;
+// 	while(s && s[i])
+// 	{
+// 		while(s[i][j])
+// 		{
 			
-			if (s[i][j] == 'N' && s[i][j + 1] == 'O')
-				c++;
-			else if (s[i][j] == 'S' && s[i][j + 1] == 'O')
-				c++;
-			else if (s[i][j] == 'W' && s[i][j + 1] == 'E')
-				c++;
-			else if (s[i][j] == 'E' && s[i][j + 1] == 'A')
-				c++;
-			else if (s[i][j] == 'C')
-				c++;
-			else if (s[i][j] == 'F')
-				c++;
-			j++;
-		}
-		i++;
-	}
-	printf("**%d\n", c);
-	if (c == 6)
-		ft_error("error\n");
-}
+// 			if (s[i][j] == 'N' && s[i][j + 1] == 'O')
+// 				c++;
+// 			else if (s[i][j] == 'S' && s[i][j + 1] == 'O')
+// 				c++;
+// 			else if (s[i][j] == 'W' && s[i][j + 1] == 'E')
+// 				c++;
+// 			else if (s[i][j] == 'E' && s[i][j + 1] == 'A')
+// 				c++;
+// 			else if (s[i][j] == 'C')
+// 				c++;
+// 			else if (s[i][j] == 'F')
+// 				c++;
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// 	if (c == 6)
+// 		ft_error("error\n");
+// }
 int	main(int ac, char **av)
 {
 	t_data	*p;
 	int i;
 	i =0;
-	char**map = NULL;;
+	char**map = NULL;
 	p = malloc(sizeof(t_data));
 	if (ac == 2)
 	{
@@ -231,12 +290,12 @@ int	main(int ac, char **av)
 		partition_map(map,&p);
 		// while(p->map[i])
 		// 	printf("%s\n", p->map[i++]);
-		check_txter(map);
+		//check_txter(map);
 		plus_txter_and_fc(p);
 		check_play(p->map);
+		plus_espice(p);
 		cheack_map(p);
 		// printf("=>>%d\n",ft_aray_size(p->map));
-		// plus_espice(p);?
 
 		
 		// printf("**%s**\n", p->ea);
