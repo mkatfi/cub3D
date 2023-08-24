@@ -3,15 +3,21 @@ NAME = cub3D
 
 SRC = 	main.c \
 		get_next_line.c\
-		ft_split.c\
-		fanction_used.c\
-		fun_used_main.c
+		ft_split.c \
+		fanction_used.c \
+		fun_read_and_partition_map.c \
+		fun_used_check_map_in_main.c \
+		function_check_map.c \
+		function_check_texter.c \
+		helper.c \
+	
+	
 
 CC = cc
 
 OBJ = ${SRC:.c=.o}
 
-CFLAGS = -g #-Wextra -Wall -Werror -fsanitize=address -g3
+CFLAGS = -Wextra -Wall -Werror #-fsanitize=address -g3
 
 all: ${NAME}
 

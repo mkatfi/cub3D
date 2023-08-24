@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 19:37:53 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/19 00:06:36 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/22 18:08:51 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,18 +70,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (g);
 }
 
-// int	ft_strchr(char *str, char c)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	if (!str)
-// 		return (0);
-// 	while (str[i])
-// 		if (str[i++] == c)
-// 			return (1);
-// 	return (0);
-// }
 
 char	*ft_read(int fd, char *container)
 {

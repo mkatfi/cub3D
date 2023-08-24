@@ -6,12 +6,42 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 00:20:15 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/18 00:50:51 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/24 03:17:36 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"prototypes.h"
+int	ft_atoi(const char *str)
+{
+	int	i;
+	int	nb;
 
+	i = 0;
+	nb = 0;
+	while (str[i] == 32)
+		i++;
+	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
+	{
+		nb = (str[i] - 48) + nb * 10;
+		i++;
+	}
+	if (nb < 0 || nb > 255)
+		ft_error("ERROR int not valide\n");
+	return (nb);
+}
+
+void	freepath(char **ptr)
+{
+	int	i;
+
+	i = 0;
+	while (ptr[i])
+	{
+		free(ptr[i]);
+		i++;
+	}
+	free(ptr);
+}
 char	*ft_strrchr(char *s, int c)
 {
 	int		i;
@@ -58,34 +88,58 @@ int	ft_strcmp(const char *str1, const char *str2)
 	return (0);
 }
 
-void	check_cub(char	*str)
-{
-	int		i;
-	char	*s;
-
-	i = 0;
-	s = ft_strrchr(str, '.');
-	while (str[i])
-		i++;
-	if (i < 5)
-	{
-		write(2, "Error\n.cub\n", 11);
-		exit(1);
-	}
-	else if (ft_strchr(str, '.') == 0)
-	{
-		write(2, "Error\n.cub\n", 11);
-		exit(1);
-	}
-	else if (ft_strcmp(s, ".cub") != 0)
-	{
-		write(2, "Error\n.cub\n", 11);
-		exit(1);
-	}
-}
-
 void	ft_error(char *a)
 {
 	write(2, a, ft_strlen(a));
 	exit(1);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+	size_t	a;
+
+	i = 0;
+	a = 0;
+	while (src[a] != '\0')
+		a++;
+	if (dstsize != 0)
+	{
+		while (src[i] != '\0' && i < dstsize - 1)
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (a);
+}
+int	ft_isalnum(int c)
+{
+	if ((c >= '0' && c <= '9')
+		|| (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	{
+		return (1);
+	}
+	return (0);
+}
+
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
+{
+	size_t			i;
+	unsigned char	*s1;
+	unsigned char	*s2;
+
+	s1 = (unsigned char *)str1;
+	s2 = (unsigned char *)str2;
+	if (n == 0)
+		return (0);
+	i = 0;
+	while ((s1[i] || s2[i]) && i < n)
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}	
+	return (0);
 }
