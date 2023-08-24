@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:01:42 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/23 15:12:59 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/24 16:15:21 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,6 @@ void plus_espice(t_data *p)
 		}
 		i++;
 	}
-	// i= 0;
-	// while (p->map[i])
-	// {
-	// 	printf("%s\n", p->map[i++]);
-	// }
 	check_play(p->map);
 	cheack_map(p->map, '0');
 }

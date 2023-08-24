@@ -6,11 +6,12 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:53:03 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/24 02:05:31 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/24 18:24:26 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"prototypes.h"
+#include"math.h"
 
 int  check_chek(char *s)
 {
@@ -67,7 +68,8 @@ char **	git_map(char *srt)
 		write(2, "Error not file\n", 16);
 		exit(1);
 	}
-	buff = get_next_line(fd);
+	if(!(buff = get_next_line(fd)))
+		return(NULL);
 	m = ft_split(buff, '\n');
 	check_newline(buff);
 	return(m);
@@ -77,6 +79,8 @@ void partition_map(char **s, t_data **p)
 {
 	int i;
 	int j;
+	int k;
+	
 
 	i =0;
 	(*p)->mapm = (char **)malloc(sizeof(char*) * 7);
@@ -92,13 +96,20 @@ void partition_map(char **s, t_data **p)
 	}
 	(*p)->mapm[i] = NULL;
 	j = 0;
-	(*p)->map = malloc(sizeof(char *) * ((ft_strlen(*s) - 6) + 1));
+
+	k = ft_aray_size(s);
+	if (k == 0)
+		ft_error("ERROR\n");
+	(*p)->map = malloc(sizeof(char *) * ((k - 6) + 1));
 	if (!(*p)->map)
 	{
 		freepath((*p)->map);
 		ft_error("ERRoR map not fond\n");
 	}
 	while (s && s[i])
+	{
 		(*p)->map[j++] = s[i++];
+
+	}
 	(*p)->map[j] = NULL;	
 }

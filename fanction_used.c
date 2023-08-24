@@ -6,11 +6,24 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 00:20:15 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/24 03:17:36 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/24 18:46:02 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"prototypes.h"
+
+void check_digit(const char *s)
+{
+	int i;
+
+	i = 0;
+	while(s[i])
+	{
+		if (ft_isdigit(s[i]) == 0)
+			ft_error("ERROR NOT DIGIt\n");
+		i++;
+	}
+}
 int	ft_atoi(const char *str)
 {
 	int	i;
@@ -20,14 +33,20 @@ int	ft_atoi(const char *str)
 	nb = 0;
 	while (str[i] == 32)
 		i++;
+	check_digit(str);
 	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
 		nb = (str[i] - 48) + nb * 10;
 		i++;
 	}
-	if (nb < 0 || nb > 255)
+	if (nb >= 0 && nb <= 255)
+		return (nb);
+	else
+	{
 		ft_error("ERROR int not valide\n");
-	return (nb);
+		return(0);
+	}
+		
 }
 
 void	freepath(char **ptr)
@@ -114,6 +133,14 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	}
 	return (a);
 }
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+	{
+		return (1);
+	}
+	return (0);
+}
 int	ft_isalnum(int c)
 {
 	if ((c >= '0' && c <= '9')
@@ -123,6 +150,7 @@ int	ft_isalnum(int c)
 	}
 	return (0);
 }
+
 
 int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {

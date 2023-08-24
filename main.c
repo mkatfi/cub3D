@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:27:33 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/23 21:25:03 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/24 16:15:32 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 		check_cub(av[1]);
 		map = git_map(av[1]); // read map only
 		partition_map(map,&p);  // t9ssim map tow part
-		check_txter(p->mapm);
+		check_txter(map);
 		// check_texter_valide(p->mapm);
 		plus_txter_and_fc(p);
 		// check_play(p->map);

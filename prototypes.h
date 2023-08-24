@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 11:04:19 by iantar            #+#    #+#             */
-/*   Updated: 2023/08/24 03:00:36 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/24 18:40:27 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void    ft_error(char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int     ft_strncmp(const char *str1, const char *str2, size_t n);
 int     ft_isalnum(int c);
+int	ft_isdigit(int c);
 
 //used
 

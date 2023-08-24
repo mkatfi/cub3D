@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:06:32 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/24 14:47:06 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/24 18:37:04 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void check_txter(char **s)
 	while(s && s[++i])
 	{
 		strs = ft_split(s[i], ' ');
-		if (ft_aray_size(strs) != 2)
-			ft_error("ERROR\ntextur no valid!\n");
 		if (strs[0] && !ft_strcmp(strs[0], "NO"))
 			c++;
 		if (strs[0] && !ft_strcmp(strs[0], "EA"))
@@ -65,7 +63,7 @@ void check_path(char *s)
 	i = -1;
 	fd = open(s, O_RDONLY);
 	if (fd == -1)
-		exit(1);
+		ft_error("Error not file\n");
 	while(s[++i])
 		if(s[i] == 32)
 			ft_error("ERROR path\n");
@@ -102,6 +100,7 @@ void check_colors(t_data *p)
 		i++;
 	}
 }
+
 void plus_txter_and_fc(t_data *p)
 {
 	char	**strs;
@@ -111,6 +110,8 @@ void plus_txter_and_fc(t_data *p)
 	while(p->mapm[i])
 	{
 		strs = ft_split(p->mapm[i], ' ');
+		if (ft_aray_size(strs) != 2)
+			ft_error("ERROR textur no valid!\n");
 		if (strs[0] && !ft_strcmp(strs[0], "NO"))
 		{
 			check_xpm(strs[1]);
