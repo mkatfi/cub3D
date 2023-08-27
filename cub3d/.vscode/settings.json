@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "includes_aouaziz.h": "c",
+        "structures_aouaziz.h": "c",
+        "math.h": "c",
+        "libft.h": "c",
+        "stdio.h": "c"
+    }
+}

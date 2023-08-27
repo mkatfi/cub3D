@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fanction_used.c                                    :+:      :+:    :+:   */
+/*   function_libft.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 00:20:15 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/24 18:46:02 by mkatfi           ###   ########.fr       */
+/*   Created: 2023/08/26 10:36:40 by mkatfi            #+#    #+#             */
+/*   Updated: 2023/08/26 10:37:23 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"prototypes.h"
+#include"./includes/prototypes.h"
 
 void check_digit(const char *s)
 {
@@ -87,87 +87,5 @@ int	ft_strchr(char *str, char c)
 	while (str[i])
 		if (str[i++] == c)
 			return (1);
-	return (0);
-}
-int	ft_strcmp(const char *str1, const char *str2)
-{
-	size_t			i;
-	unsigned char	*s1;
-	unsigned char	*s2;
-
-	s1 = (unsigned char *)str1;
-	s2 = (unsigned char *)str2;
-	i = 0;
-	while ((s1[i] || s2[i]))
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}	
-	return (0);
-}
-
-void	ft_error(char *a)
-{
-	write(2, a, ft_strlen(a));
-	exit(1);
-}
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-	size_t	a;
-
-	i = 0;
-	a = 0;
-	while (src[a] != '\0')
-		a++;
-	if (dstsize != 0)
-	{
-		while (src[i] != '\0' && i < dstsize - 1)
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (a);
-}
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-	{
-		return (1);
-	}
-	return (0);
-}
-int	ft_isalnum(int c)
-{
-	if ((c >= '0' && c <= '9')
-		|| (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-	{
-		return (1);
-	}
-	return (0);
-}
-
-
-int	ft_strncmp(const char *str1, const char *str2, size_t n)
-{
-	size_t			i;
-	unsigned char	*s1;
-	unsigned char	*s2;
-
-	s1 = (unsigned char *)str1;
-	s2 = (unsigned char *)str2;
-	if (n == 0)
-		return (0);
-	i = 0;
-	while ((s1[i] || s2[i]) && i < n)
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}	
 	return (0);
 }

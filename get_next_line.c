@@ -6,12 +6,12 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 19:37:53 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/22 18:08:51 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/25 11:12:56 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"prototypes.h"
-#include <stddef.h>
+#include"./includes/prototypes.h"
+
 
 void	*ft_calloc(size_t count, size_t size)
 {

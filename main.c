@@ -6,30 +6,33 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:27:33 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/24 16:15:32 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/27 15:52:55 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"prototypes.h"
-
+#include"./includes/prototypes.h"
 
 int	main(int ac, char **av)
 {
 	t_data	*p;
+	t_textures *txt;
+	t_color *g;
 	char**map = NULL;
 	p = malloc(sizeof(t_data));
+	txt = malloc(sizeof(t_textures));
+	g = malloc(sizeof(t_color));
 	if (ac == 2)
 	{
-		check_cub(av[1]);
+		//while(1);
+		check_cub(av[1]); // check last file fond << .cub >>
 		map = git_map(av[1]); // read map only
 		partition_map(map,&p);  // t9ssim map tow part
 		check_txter(map);
-		// check_texter_valide(p->mapm);
-		plus_txter_and_fc(p);
-		// check_play(p->map);
-		plus_espice(p);
+		plus_txter_and_fc(p, txt, g);
+		plus_espice(p);	
 	}
 	else
 		ft_error("ERROR one_arg\n");
+	//system("leaks cub3D");
 }
 

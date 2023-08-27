@@ -6,11 +6,11 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:57:58 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/24 01:51:34 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/25 11:13:07 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "prototypes.h"
+#include"./includes/prototypes.h"
 
 size_t	ft_strlen(const char *s)
 {

@@ -6,12 +6,12 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 01:52:09 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/23 21:32:22 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/27 18:32:40 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include"prototypes.h"
+#include"./includes/prototypes.h"
 
 int long_line(char **str)
 {
@@ -35,23 +35,15 @@ int ft_aray_size(char **s)
 	
 	i=0;
 	while(s[i])
-	{
-		// printf("s[%d] = %s\n", i, s[i]);
 		i++;
-	}
 	return(i);
 }
 
-// void chek_play1(char **str, int play, int a, int b)
-// {
-	
-// }
-
-void	check_play(char **str)
+char chaek_play_used(char **str, int play)
 {
 	int a;
 	int b;
-	int play = 0;
+	char k;
 
 	a = -1;
 	while (str[++a])
@@ -59,32 +51,43 @@ void	check_play(char **str)
 		b = -1;
 		while (str[a][++b])
 		{
-			if (str[a][b] == 'S' )
-		{
-			play++;
-			cheack_map(str, 'S');
-		}
-		else if (str[a][b] == 'E')
-		{
-			play++;
-			cheack_map(str, 'E');	
-		}
-		else if (str[a][b] == 'N')
-		{
-			play++;
-			cheack_map(str, 'N');
-		}
-		else if (str[a][b] == 'W')
-		{
-			play++;
-			cheack_map(str, 'W');
-		}
-		else if (str[a][b] != '0' && str[a][b] != '1' && str[a][b] != ' ')
-			ft_error("ERROR in map\n");
+			if (str[a][b] == 'S' || str[a][b] == 'E' ||
+				str[a][b] == 'N'|| str[a][b] == 'W')
+			{
+				play++;
+				k = str[a][b];
 			}
+		}
 	}
 	if (play != 1)
+	{
 		ft_error("ERROR one play please\n");
+		k = ' ';
+	}
+	return(k);
+}
+void check_play(t_data *p)
+{
+	int a;
+	int b;
+	int play = 0;
+	char k ;
+
+	k = chaek_play_used(p->map, play);
+	a = -1;
+	while (p->map[++a])
+	{
+		b = -1;
+		while (p->map[a][++b])
+		{
+			if(p->map[a][b] == 'N' || p->map[a][b] == 'S' || p->map[a][b] == 'W' || p->map[a][b] == 'E') 
+				p->player = k;
+			else if (p->map[a][b] != '0' && p->map[a][b] != '1' && p->map[a][b] != ' ')
+				ft_error("ERROR in map\n");
+			else if (k != 32)
+				cheack_map(p->map, k);
+		}
+	}	
 }
 
 void	check_cub(char	*str)

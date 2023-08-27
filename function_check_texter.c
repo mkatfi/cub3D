@@ -6,12 +6,16 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:06:32 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/24 18:37:04 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/26 21:13:23 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"prototypes.h"
+#include"./includes/prototypes.h"
 
+int rgb(int r, int g, int b)
+{
+	return (r << 16 | g << 8 | b);
+}
 void check_txter(char **s)
 {
 	char	**strs;
@@ -35,7 +39,7 @@ void check_txter(char **s)
 			c++;
 		freepath(strs);
 	}
-	if (c != 6 )
+	if (c != 6)
 		ft_error("ERROR texter\n");
 }
 
@@ -68,18 +72,19 @@ void check_path(char *s)
 		if(s[i] == 32)
 			ft_error("ERROR path\n");
 }
-void check_colors(t_data *p)
+void check_colors(t_data *p, t_color *g)
 {
 	char	**strs;
 	char	**s;
 	int		i;
 	int		j;
 
-	i = 0;
-	while(p->mapm[i])
+	i = -1;
+	while(p->mapm[++i])
 	{
 		strs = ft_split(p->mapm[i], ' ');
-		if (strs[0] && !ft_strcmp(strs[0], "F"))
+		if (strs[0] && ((!ft_strcmp(strs[0], "F")) ||
+			(!ft_strcmp(strs[0], "C"))))
 		{
 			s = ft_split(strs[1], ',');
 			j = 0;
@@ -88,53 +93,54 @@ void check_colors(t_data *p)
 			if (j != 3)
 				ft_error("ERROR three number please\n");
 		}
-		if (strs[0] && !ft_strcmp(strs[0], "C"))
-		{
-			s = ft_split(strs[1], ',');
-			j = 0;
-			while(s[j])
-				ft_atoi(s[j++]);
-			if (j != 3)
-				ft_error("ERROR three number please\n");
-		}
-		i++;
 	}
+	if (strs[0] && !ft_strcmp(strs[0], "F"))
+		g->floor = rgb(ft_atoi(s[0]), ft_atoi(s[1]), ft_atoi(s[2]));
+	if (strs[0] && !ft_strcmp(strs[0], "C"))
+		g->ceiling = rgb(ft_atoi(s[0]), ft_atoi(s[1]), ft_atoi(s[2]));
 }
 
-void plus_txter_and_fc(t_data *p)
+
+void plus_txter_and_used(char **strs, t_textures *txt)
+{
+	if (ft_aray_size(strs) != 2)
+		ft_error("ERROR textur no valid!\n");
+	if (strs[0] && !ft_strcmp(strs[0], "NO"))
+	{
+		check_xpm(strs[1]);
+		txt->no = strs[1];
+	}
+	if (strs[0] && !ft_strcmp(strs[0], "EA"))
+	{
+		check_xpm(strs[1]);
+		txt->ea = strs[1];
+	}
+	if (strs[0] && !ft_strcmp(strs[0], "SO"))
+	{
+		check_xpm(strs[1]);
+		txt->so = strs[1];
+	}
+	if (strs[0] && !ft_strcmp(strs[0], "WE"))
+	{
+		check_xpm(strs[1]);
+		txt->we = strs[1];
+	}
+}
+void plus_txter_and_fc(t_data *p, t_textures *txt, t_color *g)
 {
 	char	**strs;
 	int		i;
 
 	i = 0;
+	
 	while(p->mapm[i])
 	{
 		strs = ft_split(p->mapm[i], ' ');
-		if (ft_aray_size(strs) != 2)
-			ft_error("ERROR textur no valid!\n");
-		if (strs[0] && !ft_strcmp(strs[0], "NO"))
-		{
-			check_xpm(strs[1]);
-			p->no = strs[1];
-		}
-		if (strs[0] && !ft_strcmp(strs[0], "EA"))
-		{
-			check_xpm(strs[1]);
-			p->ea = strs[1];
-		}
-		if (strs[0] && !ft_strcmp(strs[0], "SO"))
-		{
-			check_xpm(strs[1]);
-			p->so = strs[1];
-		}
-		if (strs[0] && !ft_strcmp(strs[0], "WE"))
-		{
-			check_xpm(strs[1]);
-			p->we = strs[1];
-		}
-		freepath(strs);
+		plus_txter_and_used(strs, txt);
+		free(strs[0]);
+		free(strs);
 		i++;
 	}
-	check_colors(p);
+	check_colors(p, g);
 }
 
