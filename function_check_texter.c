@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:06:32 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/26 21:13:23 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/28 03:36:02 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int rgb(int r, int g, int b)
 {
 	return (r << 16 | g << 8 | b);
 }
+
 void check_txter(char **s)
 {
 	char	**strs;
@@ -24,6 +25,8 @@ void check_txter(char **s)
 
 	i =-1;
 	c = 0;
+	if (chek_duple(s) == 1)
+		ft_error("error duple\n");
 	while(s && s[++i])
 	{
 		strs = ft_split(s[i], ' ');

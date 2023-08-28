@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 11:04:19 by iantar            #+#    #+#             */
-/*   Updated: 2023/08/27 16:58:13 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/28 03:44:05 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,9 @@ void    plus_espice(t_data *p);
 
 //check_texer
 
-void check_txter(char **s);
-void plus_txter_and_fc(t_data *p, t_textures *txt, t_color *g);
+int     chek_duple(char **strs);
+void    check_txter(char **s);
+void    plus_txter_and_fc(t_data *p, t_textures *txt, t_color *g);
 
 void	freepath(char **ptr);
 int	ft_atoi(const char *str);

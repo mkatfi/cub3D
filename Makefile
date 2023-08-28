@@ -9,7 +9,8 @@ SRC = 	main.c \
 		fun_read_and_partition_map.c \
 		fun_used_check_map_in_main.c \
 		function_check_map.c \
-		function_check_texter.c 
+		function_check_texter.c \
+		duble_chek.c
 
 CC = cc
 

@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:27:33 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/27 15:52:55 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/28 03:52:23 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,12 @@ int	main(int ac, char **av)
 		partition_map(map,&p);  // t9ssim map tow part
 		check_txter(map);
 		plus_txter_and_fc(p, txt, g);
-		plus_espice(p);	
+		plus_espice(p);
+		freepath(p->mapm);
+		freepath(p->map);
+		free(p);
+		free(g);
+		free(txt);
 	}
 	else
 		ft_error("ERROR one_arg\n");
