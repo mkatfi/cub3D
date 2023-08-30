@@ -10,13 +10,14 @@ SRC = 	main.c \
 		fun_used_check_map_in_main.c \
 		function_check_map.c \
 		function_check_texter.c \
-		duble_chek.c
+		fun_check_newline.c \
+		check_plus_texter.c 
 
 CC = cc
 
 OBJ = ${SRC:.c=.o}
 
-CFLAGS = -Wextra -Wall -Werror #-fsanitize=address -g3
+CFLAGS = -Wextra -Wall -Werror -fsanitize=address -g3
 
 all: ${NAME}
 

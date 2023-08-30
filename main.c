@@ -6,38 +6,37 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:27:33 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/28 03:52:23 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/30 04:20:41 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"./includes/prototypes.h"
+#include "./includes/prototypes.h"
 
 int	main(int ac, char **av)
 {
-	t_data	*p;
-	t_textures *txt;
-	t_color *g;
-	char**map = NULL;
-	p = malloc(sizeof(t_data));
-	txt = malloc(sizeof(t_textures));
-	g = malloc(sizeof(t_color));
+	t_data		*p;
+	t_textures	*txt;
+	t_color		*g;
+	char		**map;
+
 	if (ac == 2)
 	{
-		//while(1);
-		check_cub(av[1]); // check last file fond << .cub >>
-		map = git_map(av[1]); // read map only
-		partition_map(map,&p);  // t9ssim map tow part
-		check_txter(map);
+		map = NULL;
+		check_cub (av[1]);
+		p = malloc(sizeof(t_data));
+		txt = malloc(sizeof(t_textures));
+		g = malloc(sizeof(t_color));
+		map = git_map(av[1]); 
+		partition_map(map, &p);
+		if (check_txter(map) == 1)
+			(freepath(map), ft_error("Error 45\n"));
 		plus_txter_and_fc(p, txt, g);
-		plus_espice(p);
-		freepath(p->mapm);
-		freepath(p->map);
-		free(p);
-		free(g);
-		free(txt);
+		if (plus_espice(p) == 1)
+			(freepath(p->map), freepath(p->mapm),
+				free(p), ft_error("Error 123\n"));
+		(freepath(p->mapm), free(g));
+		(free(txt), free(p));
 	}
 	else
 		ft_error("ERROR one_arg\n");
-	//system("leaks cub3D");
 }
-

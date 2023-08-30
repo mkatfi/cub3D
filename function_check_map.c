@@ -6,42 +6,60 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:01:42 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/27 16:55:50 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/30 04:34:36 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"./includes/prototypes.h"
+#include "./includes/prototypes.h"
 
-void cheack_map(char **str, char c)
+int	ft_check(char *str, char c)
 {
-	int i;
-	int j;
-	
+	int	i;
+
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
-		j=0;
-		while(str[i][j])
+		if (str[i] == '0' || str[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	cheack_map(char **str, char c)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	if (ft_check(str[i], c) == 1 
+		|| ft_check(str[ft_aray_size(str) - 1], c) == 1)
+		return (1);
+	while (str[i])
+	{
+		j = 0;
+		while (str[i][j])
 		{
-			if (str[i][j] == c)
+			if (str[i][j] == '0' || str[i][j] == c)
 			{
-				if (j >= 0 && (str[i][j + 1] == ' ' || str[i][j - 1] == ' ' ))
-					ft_error("Error '0' or player\n");
-				else if (i >= 0 && (str[i + 1][j] == ' ' || str[i - 1][j] == ' ' ))
-					ft_error("Error '0' or player\n");
+				if (j == 0 || str[i + 1][j] == ' ' || str[i - 1][j] == ' ' 
+					|| str[i][j + 1] == ' ' || str[i][j - 1] == ' ')
+					return (1);
 			}
 			j++;
 		}
 		i++;
 	}
+	return (0);
 }
-void plus_espice_used(t_data *p, int i)
+
+void	plus_espice_used(t_data *p, int i)
 {
-	int j;
-	char *buffer;
+	char	*buffer;
+	int		j;
 
 	if (p->m_height < p->m_witdh)
-	{	
+	{
 		buffer = malloc(p->m_witdh + 1);
 		j = 0;
 		while (p->map[i][j])
@@ -59,18 +77,22 @@ void plus_espice_used(t_data *p, int i)
 		p->map[i] = buffer;
 	}
 }
-void plus_espice(t_data *p)
+
+int	plus_espice(t_data *p)
 {
-	int i;
+	int	i;
 
 	p->m_witdh = long_line(p->map);
 	i = 0;
-	while(p->map[i])
-	{	
+	while (p->map[i])
+	{
 		p->m_height = ft_aray_size(p->map);
 		plus_espice_used(p, i);
 		i++;
 	}
-	check_play(p);
-	cheack_map(p->map, '0');
+	if (check_play(p))
+		return (1);
+	if (cheack_map(p->map, '0'))
+		return (1);
+	return (0);
 }

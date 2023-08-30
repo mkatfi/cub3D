@@ -6,24 +6,25 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 10:36:40 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/26 10:37:23 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/30 04:23:41 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"./includes/prototypes.h"
+#include "./includes/prototypes.h"
 
-void check_digit(const char *s)
+void	check_digit(const char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
 		if (ft_isdigit(s[i]) == 0)
 			ft_error("ERROR NOT DIGIt\n");
 		i++;
 	}
 }
+
 int	ft_atoi(const char *str)
 {
 	int	i;
@@ -43,10 +44,9 @@ int	ft_atoi(const char *str)
 		return (nb);
 	else
 	{
-		ft_error("ERROR int not valide\n");
-		return(0);
+		ft_error ("ERROR int not valide\n");
+		return (0);
 	}
-		
 }
 
 void	freepath(char **ptr)
@@ -61,6 +61,7 @@ void	freepath(char **ptr)
 	}
 	free(ptr);
 }
+
 char	*ft_strrchr(char *s, int c)
 {
 	int		i;

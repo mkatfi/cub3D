@@ -6,18 +6,18 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:57:58 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/25 11:13:07 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/30 04:47:11 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"./includes/prototypes.h"
+#include "./includes/prototypes.h"
 
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
-	
+
 	if (!s)
-		return(0);
+		return (0);
 	i = 0;
 	while (s[i] != '\0')
 		i++;

@@ -6,12 +6,11 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 19:37:53 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/25 11:12:56 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/30 04:22:10 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"./includes/prototypes.h"
-
+#include "./includes/prototypes.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {
@@ -19,8 +18,6 @@ void	*ft_calloc(size_t count, size_t size)
 	size_t	i;
 
 	i = 0;
-	// if (size != 0 && count > SIZE_MAX / size)
-	// 	return (NULL);
 	s = malloc(count * size);
 	if (!s)
 		return (NULL);
@@ -69,7 +66,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	free(s1);
 	return (g);
 }
-
 
 char	*ft_read(int fd, char *container)
 {

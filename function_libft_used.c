@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fanction_used.c                                    :+:      :+:    :+:   */
+/*   function_libft_used.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 00:20:15 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/26 10:37:46 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/30 04:24:37 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"./includes/prototypes.h"
+#include "./includes/prototypes.h"
 
 int	ft_strcmp(const char *str1, const char *str2)
 {
@@ -26,7 +26,7 @@ int	ft_strcmp(const char *str1, const char *str2)
 		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);
 		i++;
-	}	
+	}
 	return (0);
 }
 
@@ -44,6 +44,7 @@ int	ft_isdigit(int c)
 	}
 	return (0);
 }
+
 int	ft_isalnum(int c)
 {
 	if ((c >= '0' && c <= '9')
@@ -53,7 +54,6 @@ int	ft_isalnum(int c)
 	}
 	return (0);
 }
-
 
 int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
@@ -71,6 +71,6 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);
 		i++;
-	}	
+	}
 	return (0);
 }
