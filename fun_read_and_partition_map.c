@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:53:03 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/30 04:43:38 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/30 15:43:22 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ char	**git_map(char *srt)
 		return (NULL);
 	m = ft_split(buff, '\n');
 	if (check_newline(buff) == 1)
-		(free(buff), ft_error("ERROR espace\n"));
+		(free(buff), ft_error("ERROR\n"));
 	else if (check_newline(buff) == 2)
-		(free(buff), ft_error("ERROR comma\n"));
+		(free(buff), ft_error("ERROR\n"));
 	return (free(buff), m);
 }
 

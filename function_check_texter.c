@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:06:32 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/30 04:48:25 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/30 15:33:27 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	rgb(int r, int g, int b)
 {
 	return (r << 16 | g << 8 | b);
 }
+
 int	check_txter(char **s)
 {
 	char	**strs;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iantar <iantar@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 11:04:17 by iantar            #+#    #+#             */
-/*   Updated: 2023/08/13 10:05:55 by iantar           ###   ########.fr       */
+/*   Updated: 2023/08/30 15:38:12 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,5 @@
 # define PLAYER_DIM 5
 # define GRID 64
 
-
 //add your needs Macros here:
-
-
-
-
 #endif

@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 11:04:22 by iantar            #+#    #+#             */
-/*   Updated: 2023/08/27 16:54:27 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/30 15:37:53 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ typedef struct s_color
 typedef struct s_data
 {
 	char	**map;
+	char	**mapm;
 	int		m_height;
 	int		m_witdh;
-	char 	player;
+	char	player;
 	t_pos	pos;
 	t_mlx	mlx;
-	char 	**mapm;
 }t_data;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:27:33 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/30 04:20:41 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/30 17:12:04 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int	main(int ac, char **av)
 		map = git_map(av[1]); 
 		partition_map(map, &p);
 		if (check_txter(map) == 1)
-			(freepath(map), ft_error("Error 45\n"));
+			(freepath(map), ft_error("Error\n"));
 		plus_txter_and_fc(p, txt, g);
 		if (plus_espice(p) == 1)
 			(freepath(p->map), freepath(p->mapm),
-				free(p), ft_error("Error 123\n"));
-		(freepath(p->mapm), free(g));
+				free(p), ft_error("Error\n"));
+		(freepath(p->mapm), freepath(p->map), free(g));
 		(free(txt), free(p));
 	}
 	else

@@ -6,16 +6,19 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 03:48:34 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/30 04:53:46 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/30 17:12:25 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/prototypes.h"
 
-// int	rgb(int r, int g, int b)
-// {
-// 	return (r << 16 | g << 8 | b);
-// }
+void	check_colors_1(t_color *g, char **strs, char **s)
+{
+	if (!ft_strcmp (strs[0], "F"))
+		g->floor = rgb(ft_atoi (s[0]), ft_atoi (s[1]), ft_atoi (s[2]));
+	if (!ft_strcmp (strs[0], "C"))
+		g->ceiling = rgb(ft_atoi (s[0]), ft_atoi (s[1]), ft_atoi (s[2]));
+}
 
 void	check_colors(t_data *p, t_color *g)
 {
@@ -28,24 +31,22 @@ void	check_colors(t_data *p, t_color *g)
 	while (p->mapm[++i])
 	{
 		strs = ft_split (p->mapm[i], ' ');
-		if (strs[0] && ((!ft_strcmp (strs[0], "F")) || (!ft_strcmp (strs[0], "C"))))
+		if (strs[0] && ((!ft_strcmp (strs[0], "F"))
+				|| (!ft_strcmp (strs[0], "C"))))
 		{
 			s = ft_split (strs[1], ',');
 			j = 0;
 			while (s[j])
 				ft_atoi (s[j++]);
 			if (j != 3)
-				(freepath(s), freepath(strs), ft_error("ERROR three number please\n"));
-			if (!ft_strcmp (strs[0], "F"))
-				g->floor = rgb(ft_atoi (s[0]), ft_atoi (s[1]), ft_atoi (s[2]));
-			if (!ft_strcmp (strs[0], "C"))
-				g->ceiling = rgb(ft_atoi (s[0]), ft_atoi (s[1]), ft_atoi (s[2]));
+				(freepath(s), freepath(strs), 
+					ft_error("ERROR\n"));
+			check_colors_1(g, strs, s);
 			freepath(s);
 		}
 		freepath(strs);
-	}	
+	}
 }
-
 
 void	plus_txter_and_fc_1(t_data *p, t_textures *txt)
 {
