@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:27:33 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/30 17:12:04 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/09/01 15:28:47 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int ac, char **av)
 		if (plus_espice(p) == 1)
 			(freepath(p->map), freepath(p->mapm),
 				free(p), ft_error("Error\n"));
-		(freepath(p->mapm), freepath(p->map), free(g));
+		(freepath(map), freepath(p->mapm), freepath(p->map), free(g));
 		(free(txt), free(p));
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 03:38:49 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/30 04:46:38 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/09/01 15:29:07 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	check_chek(char *s)
 
 	i = 0;
 	k = 0;
-	while (s[i])
+	while (s && s[i])
 	{
 		if (s[i] != '\n' && s[i + 1] == '\n')
 			k++;
@@ -45,10 +45,9 @@ int	check_chek(char *s)
 			break ;
 		i++;
 	}
-	i++;
-	while (s[i])
+	while (s && s[i])
 	{
-		if (s[i] == '1')
+		if (s[i] == '1' && s[i + 1] == '1')
 			return (i);
 		i++;
 	}

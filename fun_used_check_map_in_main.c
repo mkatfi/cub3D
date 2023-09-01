@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 01:52:09 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/30 04:40:45 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/09/01 15:32:56 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_aray_size(char **s)
 	int	i;
 
 	i = 0;
-	while (s[i])
+	while (s && s[i])
 		i++;
 	return (i);
 }
@@ -103,9 +103,7 @@ void	check_cub(char	*str)
 	s = ft_strrchr(str, '.');
 	while (str[i])
 		i++;
-	if (i < 5)
-		ft_error("Error .cub\n");
-	else if (ft_strchr(str, '.') == 0)
+	if (ft_strchr(str, '.') == 0)
 		ft_error("Error .cub\n");
 	else if (ft_strcmp(s, ".cub") != 0)
 		ft_error("Error .cub\n");

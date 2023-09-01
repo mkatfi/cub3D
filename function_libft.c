@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 10:36:40 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/30 04:23:41 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/08/31 21:42:38 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	freepath(char **ptr)
 	int	i;
 
 	i = 0;
-	while (ptr[i])
+	while (ptr && ptr[i])
 	{
 		free(ptr[i]);
 		i++;

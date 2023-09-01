@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 11:04:19 by iantar            #+#    #+#             */
-/*   Updated: 2023/08/30 15:41:55 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/09/01 15:48:08 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@
 #  define BUFFER_SIZE 3
 # endif
 
-// # include "../minilibx-linux/mlx.h"
-// # include "../GNL/get_next_line.h"
+
 
 //parcing
 
@@ -44,6 +43,7 @@ int		ft_isdigit(int c);
 //used in split
 size_t	ft_strlen(const char *s);
 char	**ft_split(char const *s, char c);
+char	*ft_strdup(const char	*s1);
 //get_next_line
 char	*get_next_line(int fd);
 void	*ft_calloc(size_t count, size_t size);

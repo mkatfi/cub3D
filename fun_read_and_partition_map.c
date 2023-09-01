@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:53:03 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/08/30 15:43:22 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/09/01 15:32:20 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	**git_map(char *srt)
 	}
 	buff = get_next_line(fd);
 	close(fd);
-	if (!buff)
+	if (!buff || !buff[0])
 		return (NULL);
 	m = ft_split(buff, '\n');
 	if (check_newline(buff) == 1)
@@ -46,11 +46,11 @@ void	partition_map2(char **s, t_data **p, int i)
 	if (k == 0)
 	{
 		freepath((*p)->mapm);
-		ft_error("ERROR\n");
+		(freepath(s), ft_error("ERROR\n"));
 	}
 	(*p)->map = malloc(sizeof(char *) * ((k - 6) + 1));
 	while (s && s[i])
-		(*p)->map[j++] = s[i++];
+		(*p)->map[j++] = ft_strdup(s[i++]);
 	(*p)->map[j] = NULL;
 }
 
@@ -62,7 +62,7 @@ void	partition_map(char **s, t_data **p)
 	(*p)->mapm = (char **)malloc(sizeof(char *) * 7);
 	while (s && s[i] && i < 6)
 	{
-		(*p)->mapm[i] = s[i];
+		(*p)->mapm[i] = ft_strdup(s[i]);
 		i++;
 	}
 	(*p)->mapm[i] = NULL;
