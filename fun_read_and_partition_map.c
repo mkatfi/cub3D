@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:53:03 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/09/01 15:32:20 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/09/01 22:20:55 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ char	**git_map(char *srt)
 		return (NULL);
 	m = ft_split(buff, '\n');
 	if (check_newline(buff) == 1)
-		(free(buff), ft_error("ERROR\n"));
+		(free(buff), ft_error("ERROR new\n"));
 	else if (check_newline(buff) == 2)
-		(free(buff), ft_error("ERROR\n"));
+		(free(buff), ft_error("ERROR comm\n"));
 	return (free(buff), m);
 }
 
@@ -46,7 +46,7 @@ void	partition_map2(char **s, t_data **p, int i)
 	if (k == 0)
 	{
 		freepath((*p)->mapm);
-		(freepath(s), ft_error("ERROR\n"));
+		(freepath(s), ft_error("ERROR size\n"));
 	}
 	(*p)->map = malloc(sizeof(char *) * ((k - 6) + 1));
 	while (s && s[i])
