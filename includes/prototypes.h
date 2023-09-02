@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 11:04:19 by iantar            #+#    #+#             */
-/*   Updated: 2023/09/01 15:48:08 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/09/02 15:51:39 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int		check_chek(char *s);
 int		first_line(char *c);
 int		check_newline(char *s);
 char	**git_map(char *srt);
-void	partition_map(char **s, t_data **p);
+void	partition_map(char **s, t_data *p);
 int		check_newline(char *s);
 int		long_line(char **str);
 int		ft_aray_size(char **s);

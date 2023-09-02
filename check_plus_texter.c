@@ -6,7 +6,7 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 03:48:34 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/09/01 22:20:21 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/09/02 16:04:48 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ void	plus_txter_and_fc_1(t_data *p, t_textures *txt)
 		{
 			if (check_xpm (strs[1]) == 1)
 				(freepath(strs), ft_error ("Error4\n"));
-			txt->no = strs[1];
+			txt->no = ft_strdup(strs[1]);
 		}
 		if (strs[0] && !ft_strcmp (strs[0], "EA"))
 		{
 			if (check_xpm (strs[1]) == 1)
 				(freepath(strs), ft_error ("Error4\n"));
-			txt->ea = strs[1];
+			txt->ea =ft_strdup(strs[1]);
 		}
 		freepath (strs);
 		i++;
@@ -91,13 +91,13 @@ void	plus_txter_and_fc_2(t_data *p, t_textures *txt)
 		{
 			if (check_xpm (strs[1]) == 1)
 				(freepath(strs), ft_error ("Error4\n"));
-			txt->so = strs[1];
+			txt->so = ft_strdup(strs[1]);
 		}
 		if (strs[0] && !ft_strcmp (strs[0], "WE"))
 		{
 			if (check_xpm (strs[1]) == 1)
 				(freepath(strs), ft_error ("Error4\n"));
-			txt->we = strs[1];
+			txt->we = ft_strdup(strs[1]);
 		}
 		freepath (strs);
 		i++;

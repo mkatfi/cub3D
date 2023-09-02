@@ -6,11 +6,13 @@
 /*   By: mkatfi <mkatfi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:53:03 by mkatfi            #+#    #+#             */
-/*   Updated: 2023/09/01 22:20:55 by mkatfi           ###   ########.fr       */
+/*   Updated: 2023/09/02 16:03:29 by mkatfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/prototypes.h"
+
+
 
 char	**git_map(char *srt)
 {
@@ -36,7 +38,7 @@ char	**git_map(char *srt)
 	return (free(buff), m);
 }
 
-void	partition_map2(char **s, t_data **p, int i)
+void	partition_map2(char **s, t_data *p, int i)
 {
 	int	j;
 	int	k;
@@ -44,27 +46,24 @@ void	partition_map2(char **s, t_data **p, int i)
 	j = 0;
 	k = ft_aray_size(s);
 	if (k == 0)
-	{
-		freepath((*p)->mapm);
-		(freepath(s), ft_error("ERROR size\n"));
-	}
-	(*p)->map = malloc(sizeof(char *) * ((k - 6) + 1));
+		ft_error("file is empty\n");
+	p->map = malloc(sizeof(char *) * ((k - 6) + 1));
 	while (s && s[i])
-		(*p)->map[j++] = ft_strdup(s[i++]);
-	(*p)->map[j] = NULL;
+		p->map[j++] = ft_strdup(s[i++]);
+	p->map[j] = NULL;
 }
 
-void	partition_map(char **s, t_data **p)
+void	partition_map(char **s, t_data *p)
 {
 	int	i;
 
 	i = 0;
-	(*p)->mapm = (char **)malloc(sizeof(char *) * 7);
+	p->mapm = (char **)malloc(sizeof(char *) * 7);
 	while (s && s[i] && i < 6)
 	{
-		(*p)->mapm[i] = ft_strdup(s[i]);
+		p->mapm[i] = ft_strdup(s[i]);
 		i++;
 	}
-	(*p)->mapm[i] = NULL;
+	p->mapm[i] = NULL;
 	partition_map2 (s, p, i);
 }
