@@ -5,7 +5,7 @@ Here's the updated `README.md` with the added section:
 
 # Cub3D Game  
 
-![ezgif com-gif-maker (1)](ezgif.com-video-to-gif-converter.gif)  
+![ezgif com-gif-maker (1)](ezgif.com-video-to-gif-converter.gif) 
 
 *A project to build a simple 3D game engine using raycasting.*  
 
